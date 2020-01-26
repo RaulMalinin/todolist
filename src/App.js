@@ -1,6 +1,8 @@
 import React from 'react';
 import List from './components/List/Index';
-import AddListButton from './components/addButtonList';
+import AddList from './components/AddList/Index';
+
+import DB from './assets/DB.json';
 
 //import listSvg from './assets/img/list.svg';
 
@@ -32,24 +34,10 @@ function App() {
           isRemovable // подразумевает {true}, не обязательно тру прописывать
           />
         <List 
-          items={[
-            {
-              color: 'green',
-              name: 'Покупки'
-            },
-            {
-              color: 'blue',
-              name: 'Фронтенд',
-              active: true
-            },
-            {
-              color: 'pink',
-              name: 'Фильмы и сериалы'
-            }
-          ]} 
+          items={DB.lists}
           isRemovable
           />
-          <AddListButton /> 
+          <AddList colors={DB.colors}/> 
       </div>
       <div className='todo__tasks'></div>
     </div>

@@ -2,11 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 //import listSvg from '../assets/img/list.svg';
 
+import Badge from '../Badge/index.jsx'
+
 import './List.scss';
 
-const List = ({ items, isRemovable }) => {
+const List = ({ items, isRemovable, onClick }) => {
     return (
-        <ul className="list">
+        <ul onClick={onClick} className="list">
             {items.map((item, index) => (
                 <li key={index} 
                 className = {classNames(item.className, { 'active': item.active })}>
@@ -14,7 +16,7 @@ const List = ({ items, isRemovable }) => {
                         {item.icon ? (
                             item.icon
                         ) : (
-                            <i className={`badge badge--${item.color}`}></i>
+                            <Badge color={item.color}/>
                         )}
                         </i>
                     <span>{item.name}</span>
